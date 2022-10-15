@@ -13,21 +13,29 @@ Criar índice
 - [x] Partida
   - [x] Framework? React.js
   - [x] Pré-processador? SASS
-- [ ] Setup do front-end
+- [x] Setup do front-end
   - [x] Instalação de pacotes
     - [x] Pacotes do React.js
     - [x] Axios
     - [x] SASS
   - [x] Deletar arquivos padrão
   - [x] Design de pastas
-- [ ] Configurar HTML
-  - [ ] Favicon
-  - [ ] Escolher fontes
-- [ ] Configurar Estilos
-  - [ ] Globais
-  - [ ] Página Home
-- [ ] Configurar Serviços HTTP
+- [x] Configurar HTML
+  - [x] Favicon
+  - [x] Escolher fontes
+- [x] Declarar módulos TypeScript
+- [x] Configurar Serviços HTTP
+  - [x] Definir proxy
+- [x] Configurar Estilos Globais
 - [ ] Montar página Home
+  - [ ] Estilos
+  - [ ] Componente
+- [ ] Montar componente ProductsList
+  - [ ] Estilos
+  - [ ] Componente
+- [ ] Montar componente AddDonatorForm
+  - [ ] Estilos
+  - [ ] Componente
 
 <!-- ## Getting Started
 
