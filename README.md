@@ -32,9 +32,11 @@ Criar índice
 - [x] Montar componente AddDonatorForm
   - [x] Estilos
   - [x] Componente
-- [ ] Montar página Home
-  - [ ] Estilos
-  - [ ] Componente
+- [x] Montar página Home
+  - [x] Estilos
+  - [x] Componente
+- [ ] Form: implementar alerta de sucesso para o usuário
+- [ ] Form: implementar descida da barra de rolagem após submit
 
 <!-- ## Getting Started
 

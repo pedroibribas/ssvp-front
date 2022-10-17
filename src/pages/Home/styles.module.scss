@@ -1,10 +1,20 @@
 .container {
+  padding: 1rem;
+
+  @media (max-width: 700px) {
+    padding: 0;
+  }
+}
+
+.content {
   max-width: 1120px;
-  margin: 2rem;
+  margin: 0 auto;
   padding: 5rem 3rem 4rem;
   background: var(--gray-100);
+  overflow: hidden;
 
   header {
+    position: relative;
     max-width: 980px;
     margin: 0 auto;
     border-bottom: 4px solid var(--black);
@@ -26,7 +36,33 @@
   }
 }
 
+.topPalms {
+  display: flex;
+  position: absolute;
+  width: 100%;
+
+  img {
+    width: 300px;
+    height: auto;
+
+    &:first-child {
+      position: absolute;
+      top: -70px;
+      left: -220px;
+      transform: rotate(120deg);
+    }
+
+    &:nth-child(2) {
+      position: absolute;
+      top: -100px;
+      right: -200px;
+      transform: rotate(60deg);
+    }
+  }
+}
+
 .section {
+  position: relative;
   margin-top: 3.5rem;
 
   h2 {
@@ -56,7 +92,33 @@
     }
   }
 
-  ul {
-    margin: 1rem 0 0 1rem;
+  form {
+    width: 400px;
+    margin: 0.5rem auto 0;
+  }
+}
+
+.bottomPalms {
+  display: flex;
+  position: absolute;
+  width: 100%;
+
+  img {
+    width: 300px;
+    height: auto;
+
+    &:first-child {
+      position: absolute;
+      bottom: -150px;
+      left: -170px;
+      transform: rotate(210deg);
+    }
+
+    &:nth-child(2) {
+      position: absolute;
+      bottom: 100px;
+      right: -170px;
+      transform: rotate(55deg);
+    }
   }
 }
