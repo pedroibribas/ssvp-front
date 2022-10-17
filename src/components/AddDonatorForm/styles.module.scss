@@ -1,0 +1,44 @@
+.field {
+  display: flex;
+  align-items: center;
+  color: var(--black);
+  font-family: var(--montserrat);
+  font-size: 0.875rem;
+  line-height: 1;
+  letter-spacing: 0.5px;
+
+  & + .field {
+    margin-top: 0.5rem;
+  }
+
+  input[type='checkbox'] {
+    margin-right: 0.5rem;
+  }
+
+  label {
+    font-weight: bold;
+
+    &.disabled {
+      color: gray;
+      font-weight: normal;
+      text-decoration: line-through;
+    }
+  }
+
+  input[type='text'] {
+    display: block;
+    width: 100%;
+    margin-left: 0.5rem;
+    padding: 0.25rem;
+    font-family: var(--montserrat);
+    font-size: 0.875rem;
+  }
+}
+
+.button {
+  display: block;
+  margin: 0.5rem auto 0;
+  padding: 0.25rem 0.5rem;
+  font-family: var(--montserrat);
+  font-weight: bold;
+}
