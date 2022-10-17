@@ -20,8 +20,8 @@ Criar índice
     - [x] SASS
   - [x] Deletar arquivos padrão
   - [x] Design de pastas
-- [ ] Criar variáveis ambiente
-  - [ ] URL da API
+- [x] Criar variáveis ambiente
+  - [x] URL da API
 - [x] Configurar HTML
   - [x] Favicon
   - [x] Escolher fontes
@@ -29,10 +29,10 @@ Criar índice
 - [x] Configurar Serviços HTTP
   - [x] Definir proxy
 - [x] Configurar Estilos Globais
-- [x] Montar página Home
+- [x] Montar componente AddDonatorForm
   - [x] Estilos
   - [x] Componente
-- [ ] Montar componente AddDonatorForm
+- [ ] Montar página Home
   - [ ] Estilos
   - [ ] Componente
 
