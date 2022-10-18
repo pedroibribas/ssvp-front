@@ -35,8 +35,14 @@ Criar índice
 - [x] Montar página Home
   - [x] Estilos
   - [x] Componente
-- [ ] Form: implementar alerta de sucesso para o usuário
-- [ ] Form: implementar descida da barra de rolagem após submit
+- [ ] Montar Dashboard
+  - [x] Montar modelo estático
+  - [ ] Implementar API
+- [ ] Refatorar Flyer
+- [ ] Etc
+  - [ ] Form: implementar alerta de sucesso para o usuário
+  - [ ] Form: implementar descida da barra de rolagem após submit
+  - [ ] Form: refatorar tipagem typescript dos handlers
 
 <!-- ## Getting Started
 
