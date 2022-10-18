@@ -1,0 +1,26 @@
+.container {
+  article {
+    max-width: 960px;
+    padding: 1rem;
+    border: 1px solid var(--gray-300);
+    border-radius: 0.25rem;
+    transition: all 0.2s;
+
+    &:hover {
+      background: rgba($color: #ff4040, $alpha: 0.2);
+      border: 1px solid var(--black);
+    }
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  td,
+  th {
+    text-align: center;
+    padding: 0.1rem;
+    border: 1px solid #000;
+  }
+}
