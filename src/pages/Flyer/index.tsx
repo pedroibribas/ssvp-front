@@ -8,13 +8,13 @@ export function Flyer() {
       <main className={S.content}>
         <header>
           <h1>Seja um benfeitor vicentino!</h1>
-          <p>
-            &ldquo;O amor vem de Deus&rdquo; &#40;1 Jo 4,7&#41;
+          <div>
+            <p>&ldquo;O amor vem de Deus&rdquo; &#40;1 Jo 4,7&#41;</p>
             <div className={S.topPalms}>
               <img src={Palm} alt="folha de palmeira" />
               <img src={Palm} alt="folha de palmeira" />
             </div>
-          </p>
+          </div>
         </header>
         <section className={S.section}>
           <p>

@@ -1,5 +1,6 @@
 import { FormEvent, useEffect, useState } from "react";
-import { addDonator, getDonations } from "../../api/donation";
+import { useLocation } from "react-router-dom";
+import { addDonator, getList } from "../../api/list";
 import S from "./styles.module.scss";
 
 type Donation = {
@@ -17,16 +18,16 @@ export function AddDonatorForm() {
 
   const donationsExist = donations.length > 0;
 
+  const path = useLocation().pathname.split("/")[2];
+
   useEffect(() => {
-    getDonations()
+    getList(path)
       .then(res => {
-        const data = res.data.map((donation: Donation) => (
-          {
-            id: donation.id,
-            title: donation.title,
-            donator: donation.donator || ""
-          }
-        ));
+        const data = res.data.items.map((donation: Donation) => ({
+          id: donation.id,
+          title: donation.title,
+          donator: donation.donator
+        }));
         setDonations(data);
         setCheckedData(new Array(data.length).fill(false));
       });
@@ -51,21 +52,22 @@ export function AddDonatorForm() {
       return;
     };
 
-    const checkedDonations = donations.map((donation, index) => (
-      {
-        id: donation.id,
-        isChecked: checkedData[index],
-      }
-    ));
+    const checkedDonations = donations.map((donation, index) => ({
+      id: donation.id,
+      isChecked: checkedData[index],
+    }));
 
     const data = {
       name,
       donations: checkedDonations
     };
 
-    addDonator(data)
+    addDonator(path, data)
       .then(() => window.location.reload())
-      .catch(() => alert("Escolha uma doação disponível"));
+      .catch((err) => {
+        window.location.reload();
+        alert("Nenhuma doação escolhida ou a doação ficou indisponível");
+      });
   };
 
   if (!donationsExist) {
