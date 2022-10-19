@@ -14,7 +14,6 @@ export function Dashboard() {
         <section>
           <h2>Opções</h2>
           <button>Criar lista</button>
-          <button>Excluir lista</button>
         </section>
         <div className={S.divider} />
         <section>

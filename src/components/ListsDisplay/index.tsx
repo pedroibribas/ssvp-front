@@ -1,15 +1,34 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { getLists } from "../../api/list";
 import S from "./styles.module.scss";
 
+interface List {
+  id: string;
+  manager: string;
+  items: {
+    id: string;
+    title: string;
+    donator: string;
+  }[]
+};
+
 export function ListsDisplay() {
+  const [lists, setLists] = useState<List[]>([]);
+
+  useEffect(() => {
+    getLists()
+      .then((res) => setLists(res.data));
+  }, []);
+
   return (
     <div className={S.container}>
-      <Link to="/flyer/1">
-        <article>
-          <h3>Lista 1</h3>
+      {lists && lists.map((list, index) => (
+        <article key={list.id}>
+          <h3>Lista {index + 1}</h3>
           <table>
             <caption>
-              Lista sob responsabilidade de <strong>Mayara Bastos</strong>
+              Lista de <strong>{list.manager}</strong>
             </caption>
             <thead>
               <tr>
@@ -18,18 +37,20 @@ export function ListsDisplay() {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Item A</td>
-                <td>Fulano</td>
-              </tr>
-              <tr>
-                <td>Item B</td>
-                <td>Nenhum</td>
-              </tr>
+              {list.items.map(item => (
+                <tr key={item.id}>
+                  <td>{item.title}</td>
+                  <td>{item.donator || <span>Nenhum</span>}</td>
+                </tr>
+              ))}
             </tbody>
           </table>
+          <div className={S.links}>
+            <Link to={`/list/${list.id}`}>Modificar</Link>
+            <Link to={`/flyer/${list.id}`}>Ver panfleto</Link>
+          </div>
         </article>
-      </Link>
+      ))}
     </div>
   );
 };

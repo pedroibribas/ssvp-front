@@ -1,14 +1,15 @@
 .container {
+  max-width: 960px;
+  margin: 0 auto;
+
   article {
-    max-width: 960px;
     padding: 1rem;
     border: 1px solid var(--gray-300);
     border-radius: 0.25rem;
-    transition: all 0.2s;
+    transition: background 0.2s;
 
     &:hover {
-      background: rgba($color: #ff4040, $alpha: 0.2);
-      border: 1px solid var(--black);
+      background: rgba($color: #ffdbdb, $alpha: 0.25);
     }
   }
 
@@ -19,8 +20,33 @@
 
   td,
   th {
+    width: 50%;
     text-align: center;
     padding: 0.1rem;
     border: 1px solid #000;
+
+    span {
+      color: var(--gray-300);
+    }
+  }
+}
+
+.links {
+  text-align: center;
+  margin-top: 1rem;
+
+  a {
+    color: #5252ff;
+    font-weight: bold;
+    transition: color 0.2s;
+
+    &:hover {
+      color: #0000ff;
+      text-decoration: underline;
+    }
+
+    & + a {
+      margin-left: 1rem;
+    }
   }
 }
