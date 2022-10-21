@@ -1,0 +1,48 @@
+.field {
+  display: flex;
+  align-items: flex-end;
+  max-width: 500px;
+  width: 100%;
+  color: var(--black);
+
+  & + .field {
+    margin-top: 0.5rem;
+  }
+
+  label {
+    font-size: 0.875rem;
+    font-weight: bold;
+    white-space: nowrap;
+  }
+
+  input[type='text'] {
+    width: 100%;
+    margin: 0 0.5rem;
+  }
+}
+
+.btn {
+  display: block;
+  margin: 0.25rem auto 0;
+  border: none;
+  background: none;
+  color: rgb(180, 180, 180);
+  white-space: nowrap;
+  transition: color 0.2s ease-in-out;
+
+  &:hover {
+    color: var(--black);
+  }
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.submit {
+  display: block;
+  margin: 0.5rem auto 0;
+  padding: 0.25rem 0.5rem;
+  font-weight: bold;
+}
