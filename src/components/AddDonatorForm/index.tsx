@@ -31,7 +31,7 @@ export function AddDonatorForm() {
         setDonations(data);
         setCheckedData(new Array(data.length).fill(false));
       });
-  }, []);
+  }, [path]);
 
   function handleChangeCheckbox(position: number) {
     const updatedCheckedData = checkedData.map((box, index) =>
@@ -52,6 +52,13 @@ export function AddDonatorForm() {
       return;
     };
 
+    const hasCheckedData = checkedData.find(data => data);
+
+    if (!hasCheckedData) {
+      alert("Escolha uma doação");
+      return;
+    };
+
     const checkedDonations = donations.map((donation, index) => ({
       id: donation.id,
       isChecked: checkedData[index],
@@ -63,10 +70,15 @@ export function AddDonatorForm() {
     };
 
     addDonator(path, data)
-      .then(() => window.location.reload())
+      .then(() => {
+        window.location.reload();
+        // ! INCLUIR DADOS DAS DOAÇÕES ESCOLHIDAS
+        alert("Você acabou de escolher [...]. Obrigado pela sua doação!");
+        // ! INCLUIR DADOS DAS DOAÇÕES ESCOLHIDAS
+      })
       .catch((err) => {
         window.location.reload();
-        alert("Nenhuma doação escolhida ou a doação ficou indisponível");
+        alert("Este item não está mais disponível. Escolha outra doação.");
       });
   };
 

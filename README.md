@@ -35,11 +35,15 @@ Criar índice
 - [x] Montar página Home
   - [x] Estilos
   - [x] Componente
-- [ ] Montar Dashboard
+- [x] Montar Dashboard
   - [x] Montar modelo estático
-  - [ ] Implementar API
-- [ ] Refatorar Flyer
+  - [x] Implementar API
+- [x] Refatorar Flyer
+- [ ] Montar List
+- [ ] Montar Header
+- [ ] Montar Footer
 - [ ] Etc
+  - [ ] Flyer: subir folha topo-direita
   - [ ] Form: implementar alerta de sucesso para o usuário
   - [ ] Form: implementar descida da barra de rolagem após submit
   - [ ] Form: refatorar tipagem typescript dos handlers

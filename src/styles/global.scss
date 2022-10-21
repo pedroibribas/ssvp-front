@@ -17,7 +17,8 @@
   --sourceSerifPro: 'Source Serif Pro', serif;
 }
 
-body {
+body,
+input {
   font-family: var(--sourceSerifPro);
 }
 

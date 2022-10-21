@@ -1,0 +1,17 @@
+.button {
+  height: 100%;
+  border: 0;
+  background: #ff7070;
+  color: var(--white);
+  transition: background 0.2s;
+
+  &:hover {
+    background: #ff2020;
+  }
+
+  svg {
+    display: flex;
+    width: 20px;
+    height: 20px;
+  }
+}
