@@ -61,7 +61,7 @@ export function CreateListForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className={S.container} onSubmit={handleSubmit}>
       <div className={S.field}>
         <label htmlFor="manager">
           Nome do responsável:
@@ -78,7 +78,7 @@ export function CreateListForm() {
       {titles.map((title, index) => (
         <div key={index} className={S.field}>
           <label htmlFor={`custom-checkbox-${index}`}>
-            {index + 1}:
+            Item {index + 1}:
           </label>
           <input
             type="text"

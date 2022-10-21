@@ -1,7 +1,10 @@
+.container {
+  max-width: 500px;
+}
+
 .field {
   display: flex;
   align-items: flex-end;
-  max-width: 500px;
   width: 100%;
   color: var(--black);
 
@@ -23,26 +26,25 @@
 
 .btn {
   display: block;
-  margin: 0.25rem auto 0;
+  margin: 0 auto;
   border: none;
   background: none;
-  color: rgb(180, 180, 180);
+  color: var(--black);
   white-space: nowrap;
   transition: color 0.2s ease-in-out;
 
   &:hover {
-    color: var(--black);
+    color: #5c5c5c;
   }
 
   svg {
-    width: 24px;
-    height: 24px;
+    font-size: 2rem;
   }
 }
 
 .submit {
   display: block;
-  margin: 0.5rem auto 0;
+  margin-top: 0.5rem;
   padding: 0.25rem 0.5rem;
   font-weight: bold;
 }

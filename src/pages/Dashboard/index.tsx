@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { CreateListForm } from "../../components/CreateListForm";
-import { ListsDisplay } from "../../components/ListsDisplay";
+import { CreateListForm, Footer, Header, ListsDisplay } from "../../components";
 import S from "./styles.module.scss";
 
 export function Dashboard() {
@@ -12,12 +11,7 @@ export function Dashboard() {
 
   return (
     <>
-      <header className={S.header}>
-        <div className={S.headerContent}>
-          <h1>Painel de controle</h1>
-          <small>Logado como administrador</small>
-        </div>
-      </header>
+      <Header />
       <main className={S.container}>
         <section>
           <h2>Opções</h2>
@@ -32,9 +26,7 @@ export function Dashboard() {
           <ListsDisplay />
         </section>
       </main>
-      <footer className={S.footer}>
-        <small>SSVP @2022</small>
-      </footer>
+      <Footer />
     </>
   );
 };
