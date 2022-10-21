@@ -8,7 +8,7 @@ export function ListDisplay() {
 
   return (
     (list && (
-      <article className={S.container} key={list.id}>
+      <div className={S.container} key={list.id}>
         <h3>Lista</h3>
         <table>
           <thead>
@@ -38,7 +38,7 @@ export function ListDisplay() {
             ))}
           </tbody>
         </table>
-      </article>
+      </div>
     )) || <>carregando lista...</>
   )
 };

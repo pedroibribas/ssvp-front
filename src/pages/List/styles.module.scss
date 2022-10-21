@@ -1,31 +1,58 @@
-.header {
-  height: 5rem;
-  background: var(--gray-100);
+.section {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 2rem 1rem 3rem;
 
-  .headerContent {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    max-width: 1120px;
-    height: 5rem;
-    margin: 0 auto;
-    padding: 0 1rem;
-  }
-}
-
-.container {
-  section {
-    max-width: 1120px;
-    margin: 0 auto;
-    padding: 2rem 1rem;
-
-    h2 {
-      margin-bottom: 1rem;
-    }
+  h2 {
+    margin-bottom: 1rem;
   }
 
   form {
     margin-top: 0.5rem;
+  }
+
+  a {
+    &.center {
+      display: block;
+      margin: 2rem auto;
+      text-align: center;
+    }
+
+    &:hover,
+    &:active {
+      text-decoration: underline;
+    }
+
+    svg {
+      display: block;
+      margin: 0 auto;
+      font-size: 1.5rem;
+    }
+  }
+}
+
+.options {
+  display: flex;
+  align-items: center;
+
+  button:nth-child(3) {
+    margin-left: auto;
+  }
+}
+
+.addDonationButton {
+  height: 100%;
+  margin-left: 1rem;
+  border: 0;
+  padding: 0.25rem;
+
+  &:hover,
+  &:active {
+    background: var(--gray-300);
+  }
+
+  &:nth-child(3) {
+    margin-left: auto;
   }
 }
 
@@ -35,11 +62,4 @@
   height: 1px;
   margin: 0 auto;
   background: var(--gray-300);
-}
-
-.footer {
-  background: var(--gray-100);
-  text-align: center;
-  height: 5rem;
-  line-height: 5rem;
 }

@@ -39,9 +39,9 @@ Criar índice
   - [x] Montar modelo estático
   - [x] Implementar API
 - [x] Refatorar Flyer
-- [ ] Montar List
-- [ ] Montar Header
-- [ ] Montar Footer
+- [x] Montar List
+- [x] Montar Header
+- [x] Montar Footer
 - [ ] Etc
   - [ ] Flyer: subir folha topo-direita
   - [ ] Form: implementar alerta de sucesso para o usuário

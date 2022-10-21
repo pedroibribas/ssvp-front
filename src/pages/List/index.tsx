@@ -1,8 +1,13 @@
 import { useState } from "react";
+import { MdKeyboardReturn as ReturnIcon } from "react-icons/md";
 import { Link } from "react-router-dom";
-import { AddDonationForm } from "../../components/AddDonationForm";
-import { DeleteListButton } from "../../components/DeleteListButton";
-import { ListDisplay } from "../../components/ListDisplay";
+import {
+  AddDonationForm,
+  DeleteListButton,
+  Footer,
+  Header,
+  ListDisplay
+} from '../../components';
 import { useList } from "../../hooks/useList";
 import S from "./styles.module.scss";
 
@@ -17,40 +22,41 @@ export function List() {
 
   return (
     <>
-      <header className={S.header}>
-        <div className={S.headerContent}>
-          <h1>Painel de controle</h1>
-          <small>Logado como administrador</small>
-        </div>
-      </header>
-      <main className={S.container}>
-        <section>
+      <Header />
+      <main>
+        <section className={S.section}>
           <h2>Lista de {list?.manager || "carregando..."}</h2>
         </section>
         <div className={S.divider} />
-        <section>
+        <section className={S.section}>
           <h3>Opções</h3>
-          <Link to={`/flyer/${list?.id}`} target="_blank">
-            Ver panfleto
-          </Link>
-          <button onClick={handleClick}>Adicionar doação</button>
-          <DeleteListButton />
+          <div className={S.options}>
+            <Link to={`/flyer/${list?.id}`} target="_blank">
+              Ver panfleto
+            </Link>
+            <button
+              className={S.addDonationButton}
+              onClick={handleClick}
+            >
+              Adicionar doação
+            </button>
+            <DeleteListButton />
+          </div>
           {isFormOpen && <AddDonationForm />}
         </section>
         <div className={S.divider} />
-        <section>
+        <section className={S.section}>
           <ListDisplay />
         </section>
         <div className={S.divider} />
-        <section>
-          <Link to="/dashboard">
+        <section className={S.section}>
+          <Link className={S.center} to="/dashboard">
             Voltar ao painel
+            <ReturnIcon />
           </Link>
         </section>
       </main>
-      <footer className={S.footer}>
-        <small>SSVP @2022</small>
-      </footer>
+      <Footer />
     </>
   );
 };
