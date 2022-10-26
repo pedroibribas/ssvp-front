@@ -1,4 +1,4 @@
-import { api } from "./api";
+import axios from 'axios';
 
 type List = {
   manager: string;
@@ -14,6 +14,27 @@ type Donator = {
     isChecked: boolean;
   }[]
 }
+
+// # API
+
+const api = axios.create({
+  baseURL: process.env.REACT_APP_API_URL + "/api"
+});
+
+api.interceptors.request.use(
+  config => {
+    const token = JSON.parse(localStorage.getItem('user') || '').token
+
+    if (config.headers && token) {
+      config.headers['Authorization'] = 'Bearer ' + token
+    }
+
+    return config
+  },
+  error => Promise.reject(error)
+);
+
+// # Services
 
 export const getLists = async () => {
   const response = await api.get("/lists");

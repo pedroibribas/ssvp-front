@@ -42,6 +42,9 @@ Criar índice
 - [x] Montar List
 - [x] Montar Header
 - [x] Montar Footer
+- [x] Implementar sessão de usuário logado
+- [ ] Montar Login
+- [ ] Consertar Flyer
 - [ ] Etc
   - [ ] Flyer: subir folha topo-direita
   - [ ] Form: implementar alerta de sucesso para o usuário
