@@ -4,7 +4,7 @@ import { useList } from "../../hooks/useList";
 import S from "./styles.module.scss";
 
 export function AddDonationForm() {
-  const list = useList();
+  const { list } = useList();
 
   const [title, setTitle] = useState("");
 
@@ -21,11 +21,7 @@ export function AddDonationForm() {
     };
 
     const data = {
-      title,
-    };
-
-    if (!list) {
-      return;
+      title
     };
 
     addDonation(list.id, data)

@@ -4,7 +4,7 @@ import S from "./styles.module.scss";
 import { deleteDonation } from "../../api/list";
 
 export function DeleteDonationButton({ itemId }: { itemId: string }) {
-  const list = useList();
+  const { list } = useList();
 
   function handleDeleteDonation(listId: string) {
     deleteDonation(listId, itemId);
@@ -14,7 +14,7 @@ export function DeleteDonationButton({ itemId }: { itemId: string }) {
   return (
     <button
       className={S.button}
-      onClick={() => handleDeleteDonation(list?.id || "")}
+      onClick={() => handleDeleteDonation(list.id)}
     >
       <MdDelete />
     </button>

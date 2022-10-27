@@ -4,7 +4,7 @@ import { MdRemoveCircleOutline } from "react-icons/md";
 import S from "./styles.module.scss";
 
 export function RemoveDonatorButton({ itemId }: { itemId: string }) {
-  const list = useList();
+  const { list } = useList();
 
   function handleRemoveDonator(listId: string) {
     deleteDonator(listId, itemId);
@@ -14,7 +14,7 @@ export function RemoveDonatorButton({ itemId }: { itemId: string }) {
   return (
     <button
       className={S.button}
-      onClick={() => handleRemoveDonator(list?.id || "")}
+      onClick={() => handleRemoveDonator(list.id || "")}
     >
       <MdRemoveCircleOutline />
     </button>

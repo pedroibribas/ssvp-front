@@ -4,15 +4,13 @@ import { useList } from "../../hooks/useList";
 import S from "./styles.module.scss";
 
 export function DeleteListButton() {
-  const list = useList();
+  const { list } = useList();
 
   const navigate = useNavigate();
 
   function handleClick() {
-    if (list) {
-      deleteList(list.id);
-      navigate("/dashboard");
-    }
+    deleteList(list.id);
+    navigate("/dashboard");
   };
 
   return (

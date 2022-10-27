@@ -4,41 +4,39 @@ import { RemoveDonatorButton } from "../RemoveDonatorButton";
 import S from "./styles.module.scss";
 
 export function ListDisplay() {
-  const list = useList();
+  const { list } = useList();
 
   return (
-    (list && (
-      <div className={S.container} key={list.id}>
-        <h3>Lista</h3>
-        <table>
-          <thead>
-            <tr>
-              <th>Doação</th>
-              <th>Doador</th>
-            </tr>
-          </thead>
-          <tbody>
-            {list.items.map(item => (
-              <tr key={item.id}>
+    <div className={S.container} key={list.id}>
+      <h3>Lista</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Doação</th>
+            <th>Doador</th>
+          </tr>
+        </thead>
+        <tbody>
+          {list.items.map(item => (
+            <tr key={item.id}>
+              <td>
+                {item.title}
+                <DeleteDonationButton itemId={item.id} />
+              </td>
+              {item.donator ? (
                 <td>
-                  {item.title}
-                  <DeleteDonationButton itemId={item.id} />
+                  <span>{item.donator}</span>
+                  <RemoveDonatorButton itemId={item.id} />
                 </td>
-                {item.donator ? (
-                  <td>
-                    <span>{item.donator}</span>
-                    <RemoveDonatorButton itemId={item.id} />
-                  </td>
-                ) : (
-                  <td>
-                    <span className={S.disabled}>Nenhum</span>
-                  </td>
-                )}
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    )) || <>carregando lista...</>
+              ) : (
+                <td>
+                  <span className={S.disabled}>Nenhum</span>
+                </td>
+              )}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   )
 };

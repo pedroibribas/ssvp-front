@@ -12,7 +12,7 @@ import { useList } from "../../hooks/useList";
 import S from "./styles.module.scss";
 
 export function List() {
-  const list = useList();
+  const { list } = useList();
 
   const [isFormOpen, setIsFormOpen] = useState(false);
 

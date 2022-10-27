@@ -50,7 +50,7 @@ export function ListsDisplay() {
             </table>
             <div className={S.links}>
               <Link to={`/list/${list.id}`}>Modificar</Link>
-              <Link to={`/flyer/${list.id}`}>Ver panfleto</Link>
+              <Link to={`/flyer/${list.id}`} target="_blank">Ver panfleto</Link>
             </div>
           </article>
         ))
