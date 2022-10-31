@@ -1,92 +1,64 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/98a1f80f-35e2-43b0-8cc9-d60e7e36c9e5/deploy-status)](https://app.netlify.com/sites/doarssvp/deploys)
+# Lista de Doação da SSVP
 
-# Documentação
+Acesse em: [Link](https://doarssvp.vercel.app)
+
+Página da web destinada à apresentação de lista com produtos que os benfeitores da Sociedade São Vicente de Paulo podem visualizar e escolher para doar.
+
+<br/>
+
+## Informações
 
 - Status: Online
-- Hospedagem: Netlify
-- Página: https://doarssvp.netlify.app/
+- Hospedagem: Vercel
+- Linguagem: TypeScript/JavaScript
+- Framework: React.js
+- Criado por [Pedro Ribas](https://github.com/pedroibribas)
+- Licensa MIT
 
-## Usuário teste
+<br/>
 
-```
-email: admin001
-senha: admin001
-```
+## Funcionalidades
 
-# Desenvolvimento
+- O usuário autenticado pode criar, editar e gerenciar listas de doações, cujos links são compartilháveis para terceiros.
+- Terceiros podem visualizar e escolher itens da lista acessada.
 
-### Task List
+<br/>
 
-- [x] Partida
-  - [x] Framework? React.js
-  - [x] Pré-processador? SASS
-- [x] Setup do front-end
-  - [x] Instalação de pacotes
-    - [x] Pacotes do React.js
-    - [x] Axios
-    - [x] SASS
-  - [x] Deletar arquivos padrão
-  - [x] Design de pastas
-- [x] Criar variáveis ambiente
-  - [x] URL da API
-- [x] Configurar HTML
-  - [x] Favicon
-  - [x] Escolher fontes
-- [x] Declarar módulos TypeScript
-- [x] Configurar Serviços HTTP
-  - [x] Definir proxy
-- [x] Configurar Estilos Globais
-- [x] Montar componente AddDonatorForm
-  - [x] Estilos
-  - [x] Componente
-- [x] Montar página Home
-  - [x] Estilos
-  - [x] Componente
-- [x] Montar Dashboard
-  - [x] Montar modelo estático
-  - [x] Implementar API
-- [x] Refatorar Flyer
-- [x] Montar List
-- [x] Montar Header
-- [x] Montar Footer
-- [x] Implementar sessão de usuário logado
-- [x] Montar Login
-- [x] Consertar Flyer
-- [ ] Form: refatorar tipagem typescript dos handlers
-- [ ] Etc
-  - [x] Flyer: subir folha topo-direita
-  - [x] Form: implementar alerta de sucesso para o usuário
-  - [ ] Form: implementar descida da barra de rolagem após submit
-
-<!-- ## Getting Started
-
-First, run the development server:
+## Rodando o projeto
 
 ```bash
-npm run dev
-# or
-yarn dev
+# Clone o repositório
+$ git clone https://github.com/pedroibribas/rocketseat-ignews-app.git
+# ou com SSH
+$ git clone git@github.com:pedroibribas/rocketseat-ignews-app.git
+
+# Acesse a pasta do projeto
+$ cd ssvp-donation-list-client
+
+# Instale todas as dependências
+npm install
+# ou
+yarn install
+
+# Configure as variáveis de ambiente[*]
+
+# Rode o servidor de desenvolvimento
+npm run start
+# ou
+yarn start
+
+# O projeto será inicializado em <http://localhost:3000>
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+[*] Variáveis de ambiente no arquivo raiz `.env.local`:
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```bash
+# API
+REACT_APP_APP_URL=#URL da api de dados
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+# Local
+REACT_APP_LOCAL_URL=#URL do servidor rodando localmente
+REACT_APP_ENV="development" #[**]
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details. -->
+```
