@@ -1,4 +1,4 @@
-import axios from 'axios';
+import { api } from './api';
 
 type List = {
   manager: string;
@@ -13,17 +13,7 @@ type Donator = {
     id: string;
     isChecked: boolean;
   }[]
-}
-
-// # API
-
-const baseURL = process.env.REACT_APP_ENV === 'production'
-  ? process.env.REACT_APP_API_URL
-  : process.env.REACT_APP_LOCAL_URL;
-
-const api = axios.create({
-  baseURL: baseURL + "/api"
-});
+};
 
 api.interceptors.request.use(
   config => {
