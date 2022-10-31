@@ -2,99 +2,98 @@ import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { addDonator } from "../../api/list";
 import { useList } from "../../hooks/useList";
+import { getDonationsTitles } from "../../utils/getDonationsTitles";
 import { objectsInArraysEqual } from "../../utils/objectsInArraysEqual";
 
 export function useForm() {
-  const { donations, getUpdatedListData } = useList();
+	const { donations, getUpdatedListData } = useList();
 
-  const [currentDonations, setCurrentDonations] = useState(donations);
+	const [currentDonations, setCurrentDonations] = useState(donations);
+	const [isCheckedArray, setIsCheckedArray] = useState<boolean[]>([]);
+	const [donator, setDonator] = useState("");
 
-  const [isCheckedArray, setIsCheckedArray] = useState<boolean[]>([]);
+	const path = useLocation().pathname.split("/")[2];
 
-  const [donator, setDonator] = useState("");
+	useEffect(() => {
+		setCurrentDonations(donations);
 
-  const path = useLocation().pathname.split("/")[2];
+		const newArray = new Array(donations.length);
+		setIsCheckedArray(newArray.fill(false));
+	}, [donations]);
 
-  useEffect(() => {
-    setCurrentDonations(donations);
-    setIsCheckedArray(new Array(donations.length).fill(false));
-  }, [donations]);
+	const handleChangeCheckbox = (position: number) => {
+		const updatedValues =
+			isCheckedArray.map((value, index) =>
+				index === position ? !value : value
+			);
+		setIsCheckedArray(updatedValues);
+	};
 
-  function handleChangeCheckbox(position: number) {
-    const newIsCheckedArray = isCheckedArray.map((box, index) =>
-      index === position ? !box : box
-    );
+	const handleChangeDonator = (event: React.ChangeEvent<HTMLInputElement>) =>
+		setDonator(event.target.value);
 
-    setIsCheckedArray(newIsCheckedArray);
-  };
+	const handleDonationsSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+		event.preventDefault();
 
-  function handleChangeDonator(event: React.ChangeEvent<HTMLInputElement>) {
-    setDonator(event.target.value);
-  };
+		const anyCheckedExists = isCheckedArray.find(isChecked => isChecked);
 
-  async function handleDonationsSubmit(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
+		const updatedDonations = (await getUpdatedListData()).donations;
+		const donationsUpdated = objectsInArraysEqual(currentDonations, updatedDonations);
 
-    const updatedDonations = (await getUpdatedListData()).donations;
+		if (!anyCheckedExists) {
+			alert("Escolha uma doação");
+			return;
+		};
 
-    const isListUpdated = objectsInArraysEqual(currentDonations, updatedDonations);
+		if (!donationsUpdated) {
+			const message = `
+				A lista ficou desatualizada.
+				Escolha novamente os seus itens para doação.
+			`;
+			alert(message);
 
-    if (!isListUpdated) {
-      window.location.reload();
-      alert("A lista ficou desatualizada. Escolha novamente os seus itens para doação.");
-      return;
-    };
+			window.location.reload();
+			return;
+		};
 
-    if (!donator || donator === "") {
-      alert("Insira um nome válido");
-      return;
-    };
+		if (!donator || donator === "") {
+			alert("Insira um nome válido");
+			return;
+		};
 
-    const anyCheckedExists = isCheckedArray.find(isChecked => isChecked);
+		const formattedDonations = currentDonations.map((donation, index) => ({
+			id: donation.id,
+			title: donation.title,
+			isChecked: isCheckedArray[index],
+		}));
 
-    if (!anyCheckedExists) {
-      alert("Escolha uma doação");
-      return;
-    };
+		const donationsData = {
+			name: donator,
+			donations: formattedDonations
+		};
 
-    const formattedDonations = currentDonations.map((donation, index) => ({
-      id: donation.id,
-      title: donation.title,
-      isChecked: isCheckedArray[index],
-    }));
+		addDonator(path, donationsData)
+			.then(() => {
+				const titles = getDonationsTitles(formattedDonations);
+				const message = `
+					----- ##### ----- #####
+					Obrigado pela sua doação!
+					Você acabou de escolher os itens: ${titles}.
+					##### ------ ##### -----
+				`;
+				alert(message);
 
-    const donationsData = {
-      name: donator,
-      donations: formattedDonations
-    };
+				window.location.reload();
+			})
+			.catch((err) => console.log(err));
+	};
 
-    addDonator(path, donationsData)
-      .then(() => {
-        function getCheckedDonationsTitles() {
-          const checkedDonations = formattedDonations.filter(
-            donation => donation.isChecked === true
-          );
-
-          const titles = checkedDonations
-            .map(donation => donation.title)
-            .join(', ');
-
-          return titles
-        };
-
-        const checkedTitles = getCheckedDonationsTitles();
-        window.location.reload();
-        alert(`Você acabou de escolher os itens: ${checkedTitles}. Obrigado pela sua doação!`);
-      })
-      .catch((err) => console.log(err));
-  };
-
-  return {
-    currentDonations,
-    isCheckedArray,
-    donator,
-    handleChangeCheckbox,
-    handleChangeDonator,
-    handleDonationsSubmit
-  };
+	return {
+		currentDonations,
+		isCheckedArray,
+		donator,
+		handleChangeCheckbox,
+		handleChangeDonator,
+		handleDonationsSubmit
+	};
 };

@@ -44,11 +44,11 @@ Criar índice
 - [x] Montar Footer
 - [x] Implementar sessão de usuário logado
 - [x] Montar Login
-- [ ] Consertar Flyer
+- [x] Consertar Flyer
 - [ ] Form: refatorar tipagem typescript dos handlers
 - [ ] Etc
-  - [ ] Flyer: subir folha topo-direita
-  - [ ] Form: implementar alerta de sucesso para o usuário
+  - [x] Flyer: subir folha topo-direita
+  - [x] Form: implementar alerta de sucesso para o usuário
   - [ ] Form: implementar descida da barra de rolagem após submit
 
 <!-- ## Getting Started
