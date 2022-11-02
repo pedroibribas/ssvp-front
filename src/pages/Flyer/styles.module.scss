@@ -13,6 +13,14 @@
   background: var(--gray-100);
   overflow: hidden;
 
+  h1 {
+    color: var(--black);
+    font-family: var(--leagueGothic);
+    font-size: 2.5rem;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
   header {
     position: relative;
     max-width: 980px;
@@ -21,18 +29,10 @@
 
     p {
       font-family: var(--pacifico);
-      font-size: 1.5rem;
+      font-size: 1.25rem;
       text-align: center;
       line-height: 2;
     }
-  }
-
-  h1 {
-    color: var(--black);
-    font-family: var(--leagueGothic);
-    font-size: 3.5rem;
-    text-align: center;
-    text-transform: uppercase;
   }
 }
 
@@ -47,15 +47,15 @@
 
     &:first-child {
       position: absolute;
-      top: -70px;
-      left: -220px;
+      top: -50px;
+      left: -230px;
       transform: rotate(120deg);
     }
 
     &:nth-child(2) {
       position: absolute;
-      top: -130px;
-      right: -200px;
+      top: -140px;
+      right: -230px;
       transform: rotate(60deg);
     }
   }
@@ -79,7 +79,7 @@
     color: var(--black);
     font-family: var(--montserrat);
     font-size: 0.875rem;
-    text-align: left;
+    text-align: justify;
     line-height: 1.4;
     letter-spacing: 0.5px;
 
@@ -109,15 +109,15 @@
 
     &:first-child {
       position: absolute;
-      bottom: -150px;
+      bottom: -160px;
       left: -170px;
-      transform: rotate(210deg);
+      transform: rotate(220deg);
     }
 
     &:nth-child(2) {
       position: absolute;
-      bottom: 100px;
-      right: -170px;
+      bottom: -20px;
+      right: -200px;
       transform: rotate(55deg);
     }
   }
