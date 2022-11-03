@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { addDonator } from "../../api/list";
+import { useModalContext } from "../../contexts/ModalContext";
 import { useList } from "../../hooks/useList";
 import { getDonationsTitles } from "../../utils/getDonationsTitles";
 import { objectsInArraysEqual } from "../../utils/objectsInArraysEqual";
 
 export function useForm() {
+	const { handleModal } = useModalContext();
 	const { donations, getUpdatedListData } = useList();
 
 	const [currentDonations, setCurrentDonations] = useState(donations);
@@ -32,7 +34,9 @@ export function useForm() {
 	const handleChangeDonator = (event: React.ChangeEvent<HTMLInputElement>) =>
 		setDonator(event.target.value);
 
-	const handleDonationsSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+	const handleDonationsSubmit = async (
+		event: React.FormEvent<HTMLFormElement>
+	) => {
 		event.preventDefault();
 
 		const anyCheckedExists = isCheckedArray.find(isChecked => isChecked);
@@ -47,8 +51,8 @@ export function useForm() {
 
 		if (!donationsUpdated) {
 			const message = `
-				A lista ficou desatualizada.
-				Escolha novamente os seus itens para doação.
+				Este item não está mais disponível. 
+				Escolha outro item para doação.
 			`;
 			alert(message);
 
@@ -73,17 +77,17 @@ export function useForm() {
 		};
 
 		addDonator(path, donationsData)
-			.then(() => {
+			.then(async () => {
 				const titles = getDonationsTitles(formattedDonations);
 				const message = `
-					----- ##### ----- #####
 					Obrigado pela sua doação!
 					Você acabou de escolher os itens: ${titles}.
-					##### ------ ##### -----
 				`;
-				alert(message);
 
-				window.location.reload();
+				handleModal(message);
+
+				const { donations } = await getUpdatedListData();
+				setCurrentDonations(donations);
 			})
 			.catch((err) => console.log(err));
 	};
