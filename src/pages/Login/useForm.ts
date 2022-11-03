@@ -29,7 +29,7 @@ export function useForm() {
 
     login(user)
       .then(res => {
-        localStorage.setItem("user", JSON.stringify(res.data));
+        localStorage.setItem("ssvpUser", JSON.stringify(res.data));
         setUser(res.data);
         window.location.reload();
         navigate("/dashboard");

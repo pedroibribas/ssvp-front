@@ -1,24 +1,10 @@
 import { createContext, useContext, useState } from "react";
 
-// Provider State
-// interface IUser {
-//   user: {
-//     username: string;
-//     token: string;
-//   }
-// };
-
-// Provider Store
-// interface IAuthContext {
-//   user: IUser;
-//   setUser: (user: IUser) => void;
-// };
-
 interface AuthProviderProps {
   children: React.ReactNode
 };
 
-const session = localStorage.getItem("user");
+const session = localStorage.getItem("ssvpUser");
 const initialUser = session ? JSON.parse(session) : null;
 
 export const AuthContext = createContext(initialUser);
