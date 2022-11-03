@@ -65,6 +65,8 @@ export function useForm() {
 			return;
 		};
 
+		setDonator("");
+
 		const formattedDonations = currentDonations.map((donation, index) => ({
 			id: donation.id,
 			title: donation.title,

@@ -93,6 +93,8 @@
   }
 
   form {
+    position: relative;
+    z-index: 5;
     width: 400px;
     margin: 0.5rem auto 0;
   }

@@ -17,7 +17,7 @@ type Donator = {
 
 api.interceptors.request.use(
   config => {
-    const user = localStorage.getItem('user') || null;
+    const user = localStorage.getItem('ssvpUser') || null;
     const token = user ? JSON.parse(user).token : null;
 
     if (config.headers && token) {

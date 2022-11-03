@@ -2,13 +2,13 @@ import { createContext, useContext } from "react";
 import { Modal } from "../components/Modal";
 import { useModal } from "../hooks/useModal";
 
-interface ModalContext {
+interface IModalContext {
     isModalOpen: boolean;
     modalContent: string;
     handleModal: (modalContent?: string) => void;
 };
 
-export const ModalContext = createContext({} as ModalContext);
+export const ModalContext = createContext({} as IModalContext);
 
 export function ModalProvider(
     { children }: { children: React.ReactNode }

@@ -1,7 +1,7 @@
-import { useList } from "../../hooks/useList";
 import { MdDelete } from "react-icons/md";
-import S from "./styles.module.scss";
+import { useList } from "../../hooks/useList";
 import { deleteDonation } from "../../api/list";
+import S from "./styles.module.scss";
 
 export function DeleteDonationButton({ itemId }: { itemId: string }) {
   const { list } = useList();

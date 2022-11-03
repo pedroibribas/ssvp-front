@@ -25,22 +25,20 @@ export function useList() {
 
   const path = useLocation().pathname.split("/")[2];
 
+  useEffect(() => {
+    getList(path).then(res => {
+      const list = res.data;
+      setList(list);
+      setDonations(list.items);
+    });
+  }, [path]);
+
   async function getUpdatedListData() {
     const list = await getList(path).then(res => res.data);
-
     const donations = list.items;
 
     return { list, donations };
   };
-
-  useEffect(() => {
-    getList(path)
-      .then(res => {
-        const list = res.data;
-        setList(list);
-        setDonations(list.items);
-      });
-  }, [path]);
 
   return {
     list,
