@@ -4,8 +4,8 @@ export function LogoutButton() {
   const { setUser } = useAuth();
 
   function handleLogout() {
-    localStorage.removeItem('user');
-    setUser({ user: null });
+    localStorage.removeItem('ssvpUser');
+    setUser({ ssvpUser: null });
     window.location.reload();
   };
 
