@@ -28,9 +28,9 @@ Página da web destinada à apresentação de lista com produtos que os benfeito
 
 ```bash
 # Clone o repositório
-$ git clone https://github.com/pedroibribas/rocketseat-ignews-app.git
+$ git clone https://github.com/pedroibribas/ssvp-donation-list-client.git
 # ou com SSH
-$ git clone git@github.com:pedroibribas/rocketseat-ignews-app.git
+$ git clone git@github.com:pedroibribas/ssvp-donation-list-client.git
 
 # Acesse a pasta do projeto
 $ cd ssvp-donation-list-client
@@ -60,5 +60,5 @@ REACT_APP_APP_URL=#URL da api de dados
 REACT_APP_LOCAL_URL=#URL do servidor rodando localmente
 REACT_APP_ENV="development" #[**]
 
-
+#[**] Quando "development", a url para obter os dados será a do servidor local.
 ```
