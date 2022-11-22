@@ -18,19 +18,19 @@ export function Flyer() {
         </header>
         <section className={S.section}>
           <p>
-            A Sociedade São Vicente de Paulo é uma organização de leigos da Igreja Católica, dedicada ao trabalho cristão de caridade aos mais desfavorecidos.
+            A Sociedade São Vicente de Paulo é uma organização de leigos da Igreja Católica, dedicada ao trabalho cristão de Caridade aos mais desfavorecidos.
           </p>
           <p>
-            Foi criada na França em 1833 por um grupo de jovens universitários e rapidamente a Sociedade espalhou-se pelo mundo, já estando presente em 150 países.
+            Foi criada na França em 1833 pelo Beato Antônio Frederico Ozanam e seus amigos universitários, espalhando-se rapidamente pelo mundo. Atualmente a Sociedade já está presente em 150 países.
           </p>
           <p>
-            Seu trabalho caritativo tem o objetivo de aliviar o sofrimento das pessoas mais vulneráveis, auxiliando-as de maneira assistencial e espiritual a fim de erguê-las socialmente, recuperando sua dignidade e adquirindo sua própria independência.
+            Seu trabalho caritativo  tem o objetivo de aliviar o sofrimento das pessoas mais vulneráveis, auxiliando-as  de maneira assistencial e espiritual a fim de promovê-las socialmente, recuperando sua dignidade e adquirindo sua própria independência.
           </p>
           <p>
-            Nosso grupo Vicentino reúne-se semanalmente na capela São Vicente de Paulo no bairro Jardim Alvorada, Três Lagoas-MS, e está precisando montar cestas básicas para doação às famílias carentes que assistimos.
+            Nosso grupo Vicentino reúne-se semanalmente na capela São Vicente de Paulo no bairro Jardim Alvorada, Três Lagoas- MS e está precisando montar cestas básicas para doação às famílias carentes que assistimos.
           </p>
           <p>
-            Caso você possa nos ajudar mensalmente com algum tipo de alimento desses que elencamos a seguir, poderemos continuar com nosso trabalho e possivelmente ampliá-lo para a assistência a mais famílias!
+            Caso você possa nos ajudar mensalmente com algum tipo de alimento desses que elencamos a seguir, poderemos fortalecer o nosso trabalho e possivelmente ampliá-lo para a assistência a mais famílias!
           </p>
         </section>
         <section className={S.section}>
