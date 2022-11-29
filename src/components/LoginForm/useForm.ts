@@ -11,11 +11,15 @@ export function useForm() {
 
   const navigate = useNavigate();
 
-  function handleUsernameChange(event: React.ChangeEvent<HTMLInputElement>) {
+  function handleUsernameChange(
+    event: React.ChangeEvent<HTMLInputElement>
+  ) {
     setUsername(event.target.value);
   };
 
-  function handlePasswordChange(event: React.ChangeEvent<HTMLInputElement>) {
+  function handlePasswordChange(
+    event: React.ChangeEvent<HTMLInputElement>
+  ) {
     setPassword(event.target.value);
   };
 
@@ -38,10 +42,14 @@ export function useForm() {
   };
 
   return {
-    username,
-    password,
-    handleUsernameChange,
-    handlePasswordChange,
-    handleUserSubmit
+    input: {
+      username,
+      password
+    },
+    controller: {
+      handleUsernameChange,
+      handlePasswordChange,
+      handleUserSubmit
+    }
   };
 };
