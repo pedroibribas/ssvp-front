@@ -6,7 +6,6 @@ import { Flyer } from "./pages/Flyer";
 import { Home } from "./pages/Home";
 import { List } from "./pages/List";
 import { Login } from "./pages/Login";
-import "./styles/global.scss";
 
 function App() {
   const isLoggedIn = useAuth();
