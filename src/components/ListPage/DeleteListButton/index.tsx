@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import { deleteList } from "../../api/list";
-import { useList } from "../../hooks/useList";
-import S from "./styles.module.scss";
+import { deleteList } from "../../../api/list";
+import { useList } from "../../../hooks/useList";
 
 export function DeleteListButton() {
   const { list } = useList();
@@ -15,7 +14,7 @@ export function DeleteListButton() {
 
   return (
     <button
-      className={S.deleteListbutton}
+      className="btn btn-danger"
       onClick={handleClick}
     >
       Excluir lista
