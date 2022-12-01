@@ -1,7 +1,6 @@
-import { deleteDonator } from "../../api/list";
-import { useList } from "../../hooks/useList";
-import { MdRemoveCircleOutline } from "react-icons/md";
-import S from "./styles.module.scss";
+import { MdDelete } from "react-icons/md";
+import { deleteDonator } from "../../../../api/list";
+import { useList } from "../../../../hooks/useList";
 
 export function RemoveDonatorButton({ itemId }: { itemId: string }) {
   const { list } = useList();
@@ -13,10 +12,11 @@ export function RemoveDonatorButton({ itemId }: { itemId: string }) {
 
   return (
     <button
-      className={S.button}
+      disabled={!itemId}
+      className="btn btn-sm btn-danger"
       onClick={() => handleRemoveDonator(list.id || "")}
     >
-      <MdRemoveCircleOutline />
+      <MdDelete />
     </button>
   );
 };

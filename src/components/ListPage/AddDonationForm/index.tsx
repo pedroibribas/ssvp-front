@@ -1,7 +1,6 @@
 import { FormEvent, useState } from "react";
-import { addDonation } from "../../api/list";
-import { useList } from "../../hooks/useList";
-import S from "./styles.module.scss";
+import { addDonation } from "../../../api/list";
+import { useList } from "../../../hooks/useList";
 
 export function AddDonationForm() {
   const { list } = useList();
@@ -30,20 +29,18 @@ export function AddDonationForm() {
   };
 
   return (
-    <form className={S.container} onSubmit={handleSubmit}>
-      <div className={S.field}>
-        <label htmlFor="manager">
-          Doação:
-        </label>
-        <input
-          type="text"
-          name="manager"
-          id="manager"
-          value={title}
-          onChange={handleChangeTitle}
-        />
-      </div>
-      <button className={S.button} type="submit">
+    <form className="form-floating" onSubmit={handleSubmit}>
+      <input
+        type="text"
+        className="form-control"
+        name="title"
+        id="title"
+        value={title}
+        onChange={handleChangeTitle}
+      />
+      <label htmlFor="form-label">Doação</label>
+
+      <button className='btn btn-sm btn-success mt-1' type="submit">
         Adicionar
       </button>
     </form >
