@@ -1,7 +1,6 @@
 import { FormEvent, useState } from "react";
-import { MdAddBox } from "react-icons/md";
-import { createList } from "../../api/list";
-import S from "./styles.module.scss";
+import { MdClose, MdOutlinePlusOne } from "react-icons/md";
+import { createList } from "../../../api/list";
 
 export function CreateListForm() {
   const [manager, setManager] = useState("");
@@ -61,26 +60,32 @@ export function CreateListForm() {
   };
 
   return (
-    <form className={S.container} onSubmit={handleSubmit}>
-      <div className={S.field}>
-        <label htmlFor="manager">
-          Nome do responsável:
-        </label>
-        <input
-          type="text"
-          name="manager"
-          id="manager"
-          value={manager}
-          onChange={handleChangeManager}
-        />
-      </div>
+    <form className="form-floating" onSubmit={handleSubmit}>
+      <input
+        className="form-control"
+        type="text"
+        name="manager"
+        id="manager"
+        value={manager}
+        onChange={handleChangeManager}
+      />
+      <label htmlFor="manager">
+        Nome do responsável
+      </label>
 
       {titles.map((title, index) => (
-        <div key={index} className={S.field}>
-          <label htmlFor={`custom-checkbox-${index}`}>
-            Item {index + 1}:
+        <div
+          key={index}
+          className="input-group mt-1 align-items-center"
+        >
+          <label
+            className="input-group-text"
+            htmlFor={`custom-checkbox-${index}`}
+          >
+            Item {index + 1}
           </label>
           <input
+            className="form-control"
             type="text"
             id={`custom-checkbox-${index}`}
             name={index.toString()}
@@ -90,20 +95,25 @@ export function CreateListForm() {
           {index > 0 && (
             <button
               type="button"
+              className="input-group-text btn btn-danger"
               onClick={() => handleRemoveItemClick(index)}
             >
-              Remover
+              <MdClose />
             </button>
           )}
         </div>
       ))}
 
-      <button type="button" className={S.btn} onClick={handleAddItemClick}>
-        <MdAddBox />
+      <button
+        type="button"
+        className="mt-1 btn btn-sm btn-warning"
+        onClick={handleAddItemClick}
+      >
+        <MdOutlinePlusOne className="fs-5 d-block" />
       </button>
 
-      <button type="submit" className={S.submit}>
-        Enviar
+      <button type="submit" className="d-block mx-auto btn btn-dark">
+        Criar
       </button>
     </form >
   )
