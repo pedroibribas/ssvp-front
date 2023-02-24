@@ -1,0 +1,128 @@
+.container {
+  padding: 1rem;
+
+  @media (max-width: 700px) {
+    padding: 0;
+  }
+}
+
+.content {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 5rem 3rem 4rem;
+  background: var(--gray-100);
+  overflow: hidden;
+
+  h1 {
+    color: var(--black);
+    font-family: var(--leagueGothic);
+    font-size: 2.5rem;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  header {
+    position: relative;
+    max-width: 980px;
+    margin: 0 auto;
+    border-bottom: 4px solid var(--black);
+
+    p {
+      font-family: var(--pacifico);
+      font-size: 1.25rem;
+      text-align: center;
+      line-height: 2;
+    }
+  }
+}
+
+.topPalms {
+  display: flex;
+  position: absolute;
+  width: 100%;
+
+  img {
+    width: 300px;
+    height: auto;
+
+    &:first-child {
+      position: absolute;
+      top: -50px;
+      left: -230px;
+      transform: rotate(120deg);
+    }
+
+    &:nth-child(2) {
+      position: absolute;
+      top: -140px;
+      right: -230px;
+      transform: rotate(60deg);
+    }
+  }
+}
+
+.section {
+  position: relative;
+  margin-top: 3.5rem;
+  white-space: break-spaces;
+
+  h2 {
+    color: var(--black);
+    font-family: var(--montserrat);
+    font-size: 1.1rem;
+    font-weight: normal;
+    text-align: center;
+    line-height: 1.4;
+    letter-spacing: 0.5px;
+  }
+
+  p {
+    color: var(--black);
+    font-family: var(--montserrat);
+    font-size: 0.875rem;
+    text-align: justify;
+    line-height: 1.4;
+    letter-spacing: 0.5px;
+
+    &::first-letter {
+      margin-left: 3rem;
+    }
+
+    & + p {
+      margin-top: 1rem;
+    }
+  }
+
+  form {
+    position: relative;
+    z-index: 5;
+    width: 400px;
+    margin: 0.5rem auto 0;
+  }
+}
+
+.bottomPalms {
+  display: flex;
+  position: absolute;
+  z-index: 0;
+  width: 100%;
+
+  img {
+    width: 300px;
+    height: auto;
+
+    &:first-child {
+      position: absolute;
+      bottom: -160px;
+      left: -170px;
+      transform: rotate(220deg);
+    }
+
+    &:nth-child(2) {
+      position: absolute;
+      bottom: -20px;
+      right: -200px;
+      transform: rotate(55deg);
+    }
+  }
+}
