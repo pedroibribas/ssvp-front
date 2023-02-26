@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { ListApi } from "../../../api/LandingPage/listApi";
 import { objectsInArraysEqual } from "../../../utils/objectsInArraysEqual";
+import { Loader } from "../Loader";
 import { SuccessMessage } from "../SuccessMessage";
 import S from "./styles.module.scss";
 
@@ -15,6 +16,7 @@ export function AddDonator() {
   const [showDonations, setShowDonations] = useState<Donation[]>([]);
   const [donator, setDonator] = useState("");
   const [donationsValues, setDonationsValues] = useState<boolean[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
   const [isSuccessMessageOpen, setIsSuccessMessageOpen] = useState(false);
 
   const id = useLocation().pathname.split("/")[2];
@@ -25,6 +27,7 @@ export function AddDonator() {
       .then((res) => {
         setShowDonations(res.data.items);
         setDonationsValues(new Array(res.data.items.length).fill(false));
+        setIsLoading(false);
       })
       .catch((err) => console.log(err));
   }, [id]);
@@ -86,7 +89,11 @@ export function AddDonator() {
     return checkedDonations.map(donation => donation.title);
   }
 
-  if (!showDonationsExist) {
+  if (isLoading) {
+    return <Loader />
+  }
+
+  if (!isLoading && !showDonationsExist) {
     return <div>Nenhum item para doação disponível no momento.</div>
   }
 
