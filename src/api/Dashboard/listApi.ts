@@ -41,24 +41,33 @@ api.interceptors.request.use(
   error => Promise.reject(error)
 );
 
-const getLists = async () => await api.get("/lists");
+const getLists = async () => await api.get("/lists/auth");
 
-const createList = async (data: CreateFlyerRequest) => await api.post("/lists", data);
+const createList = async (data: CreateFlyerRequest) => await api.post("/lists/auth", data);
 
-const getList = async (id: string) => await api.get(`/lists/${id}`);
+const getList = async (id: string) => await api.get(`/lists/auth/${id}`);
 
-const addDonation = async (id: string, data: AddDonationRequest) => await api.post(`/lists/${id}`, data);
+const addDonation = async (id: string, data: AddDonationRequest) => await api.post(`/lists/auth/${id}`, data);
 
-const updateList = async (id: string, data: UpdateFlyerRequest) => await api.put(`/lists/${id}`, data);
+const updateList = async (id: string, data: UpdateFlyerRequest) => await api.put(`/lists/auth/${id}`, data);
 
-const deleteList = async (id: string) => await api.delete(`/lists/${id}`);
+const deleteList = async (id: string) => await api.delete(`/lists/auth/${id}`);
 
 const updateDonation = async (path: UpdateDonationPath, data: UpdateDonationRequest) => {
-  await api.put(`/lists/${path.flyerId}/${path.donationId}`, data);
+  await api.put(`/lists/auth/${path.flyerId}/${path.donationId}`, data);
 }
 
 const deleteDonation = async (flyerId: string, donationId: string) => {
-  await api.delete(`/lists/${flyerId}/${donationId}`);
+  await api.delete(`/lists/auth/${flyerId}/${donationId}`);
 }
 
-export const ListApi = { getLists, createList, getList, addDonation, updateList, deleteList, updateDonation, deleteDonation };
+export const ListApi = {
+  getLists,
+  createList,
+  getList,
+  addDonation,
+  updateList,
+  deleteList,
+  updateDonation,
+  deleteDonation
+};

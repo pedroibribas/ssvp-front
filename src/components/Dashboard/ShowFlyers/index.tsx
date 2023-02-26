@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { BsFillPersonCheckFill as CheckSvg } from "react-icons/bs";
 import { Link } from "react-router-dom";
-import { ListApi } from "../../../api/listApi";
+import { ListApi } from "../../../api/Dashboard/listApi";
 
 interface Donation {
   _id: string

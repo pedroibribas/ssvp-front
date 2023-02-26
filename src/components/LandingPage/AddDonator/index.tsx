@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { ListApi } from "../../../api/listApi";
+import { ListApi } from "../../../api/LandingPage/listApi";
 import { objectsInArraysEqual } from "../../../utils/objectsInArraysEqual";
-import { SuccessMessage } from "./SuccessMessage";
+import { SuccessMessage } from "../SuccessMessage";
 import S from "./styles.module.scss";
 
 interface Donation {
@@ -92,12 +92,7 @@ export function AddDonator() {
 
   return (
     <>
-      {isSuccessMessageOpen && (
-        <SuccessMessage
-          handleModal={handleSuccessMessage}
-          donationsTitles={getCheckedDonationsTitles()}
-        />
-      )}
+      {isSuccessMessageOpen && <SuccessMessage handleModal={handleSuccessMessage} donationsTitles={getCheckedDonationsTitles()} />}
       <form onSubmit={handleSubmit}>
         {showDonationsExist &&
           showDonations.map((donation, index) => (

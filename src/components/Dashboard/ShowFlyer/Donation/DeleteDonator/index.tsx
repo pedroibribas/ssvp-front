@@ -1,5 +1,5 @@
 import { useLocation } from "react-router-dom";
-import { ListApi } from "../../../../../api/listApi";
+import { ListApi } from "../../../../../api/Dashboard/listApi";
 
 interface DeleteDonatorProps {
   handleModal: () => void

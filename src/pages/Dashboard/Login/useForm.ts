@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { login } from "../../../api/auth";
+import { login } from "../../../api/Dashboard/auth";
 import { useAuth } from "../../../contexts/AuthContext";
 
 export function useForm() {

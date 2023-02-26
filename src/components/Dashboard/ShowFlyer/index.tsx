@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { MdKeyboardReturn as ReturnIcon } from "react-icons/md";
-import { ListApi } from "../../../api/listApi";
+import { ListApi } from "../../../api/Dashboard/listApi";
 import { DeleteFlyer } from "../DeleteFlyer";
 import { AddDonation } from "./Donation/AddDonation";
 import { ShowDonation } from "./Donation/ShowDonation";

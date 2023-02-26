@@ -1,6 +1,6 @@
 import { FormEvent, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { ListApi } from "../../../../../api/listApi";
+import { ListApi } from "../../../../../api/Dashboard/listApi";
 
 export function AddDonation({ handleModal }: { handleModal: () => void }) {
   const [title, setTitle] = useState("");

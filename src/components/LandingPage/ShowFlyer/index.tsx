@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { ListApi } from "../../../api/listApi";
+import { ListApi } from "../../../api/LandingPage/listApi";
 import { AddDonator } from "../AddDonator";
 
 import Palm from "../../../images/palm.png";

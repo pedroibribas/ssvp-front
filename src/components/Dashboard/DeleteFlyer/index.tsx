@@ -1,5 +1,5 @@
 import { useLocation, useNavigate } from "react-router-dom";
-import { ListApi } from "../../../api/listApi";
+import { ListApi } from "../../../api/Dashboard/listApi";
 
 interface DeleteFlyerProps {
   handleModal: () => void

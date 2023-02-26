@@ -1,6 +1,6 @@
 import { FormEvent, useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { ListApi } from "../../../api/listApi";
+import { ListApi } from "../../../api/Dashboard/listApi";
 
 export const EditFlyer = () => {
   const [manager, setManager] = useState("");
