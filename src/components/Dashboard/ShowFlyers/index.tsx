@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 import { BsFillPersonCheckFill as CheckSvg } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { ListApi } from "../../../api/Dashboard/listApi";
+import { Loader } from "../Common/Loader";
 
 interface Donation {
   _id: string
   title: string
   donator?: string
 }
-
 interface List {
   _id: string
   manager: string
@@ -23,6 +23,11 @@ export const ShowFlyers = () => {
     ListApi.getLists().then((res) => setFlyers(res.data.data))
       .catch((err) => console.log(err));
   }, []);
+
+  if (!flyers || flyers.length === 0) {
+    return <Loader />
+  }
+
   return (
     <div className="mb-5">
       {flyersExist ? flyers.map((flyer, index) => (

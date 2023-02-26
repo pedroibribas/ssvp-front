@@ -5,13 +5,13 @@ import { AddDonator } from "../AddDonator";
 
 import Palm from "../../../images/palm.png";
 import S from "./styles.module.scss";
+import { Loader } from "../Loader";
 
 interface Donation {
   _id: string
   title: string
   donator?: string
 }
-
 interface ShowFlyerResponse {
   _id: string
   manager: string
@@ -28,6 +28,10 @@ export function ShowFlyer() {
       .then((res) => setFlyer(res.data))
       .catch((err) => console.log(err));
   }, [path])
+
+  if (!flyer) {
+    return <Loader />
+  }
 
   return (
     <div className={S.container}>
