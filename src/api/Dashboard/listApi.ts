@@ -1,3 +1,4 @@
+import { getLocalStorageUserKey } from '../../utils/getLocalStorageUserKey';
 import { api } from './api';
 
 interface CreateFlyerRequest {
@@ -29,7 +30,7 @@ interface UpdateDonationRequest {
 
 api.interceptors.request.use(
   config => {
-    const user = localStorage.getItem('ssvpUser') || null;
+    const user = localStorage.getItem(getLocalStorageUserKey()) || null;
     const token = user ? JSON.parse(user).token : null;
 
     if (config.headers && token) {

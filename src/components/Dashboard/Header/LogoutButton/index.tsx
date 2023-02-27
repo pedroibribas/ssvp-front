@@ -1,13 +1,10 @@
 import { useAuth } from "../../../../contexts/AuthContext";
 
 export const LogoutButton = () => {
-  const { setUser } = useAuth();
-
+  const Auth = useAuth();
   function handleLogout() {
-    localStorage.removeItem('ssvpUser');
-    setUser({ ssvpUser: null });
+    Auth.logout();
     window.location.reload();
   }
-
   return <button onClick={handleLogout}>Sair</button>;
 }

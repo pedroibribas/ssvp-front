@@ -1,14 +1,24 @@
-import { useForm } from "./useForm";
+import { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useAuth } from "../../../contexts/AuthContext";
 import S from "./styles.module.scss";
 
 export function Login() {
-  const {
-    username,
-    password,
-    handleUsernameChange,
-    handlePasswordChange,
-    handleUserSubmit
-  } = useForm();
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const Auth = useAuth();
+  const navigate = useNavigate();
+  const { state } = useLocation();
+
+  const handleUsernameChange = (event: React.ChangeEvent<HTMLInputElement>) => setUsername(event.target.value);
+  const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => setPassword(event.target.value);
+
+  const handleUserSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const userRequest = { username, password }
+    Auth.login(userRequest)
+      .then(() => navigate(state || "/dashboard/flyers"));
+  }
 
   return (
     <main className={S.container}>
