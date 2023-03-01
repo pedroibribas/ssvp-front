@@ -7,6 +7,7 @@ export function AddDonation({ handleModal }: { handleModal: () => void }) {
   const path = useLocation().pathname.split("/")[3];
 
   const handleChangeTitle = (event: any) => setTitle(event.target.value);
+
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
 
@@ -16,7 +17,7 @@ export function AddDonation({ handleModal }: { handleModal: () => void }) {
 
     ListApi.addDonation(path, { title })
       .then(() => window.location.reload())
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err.response.data));
   };
 
   return (

@@ -12,7 +12,7 @@ export const DeleteDonation = (props: DeleteDonationProps) => {
   const handleDelete = () => {
     ListApi.deleteDonation(flyerId, props.donationId)
       .then(() => window.location.reload())
-      .catch((err) => console.log(err.response.data));
+      .catch((err) => console.log(`DeleteDonation:15 - ${err.response.data}`));
   }
   return (
     <div className="position-fixed top-0 start-0 vw-100 vh-100 bg-dark bg-opacity-25" style={{ "zIndex": 100 }}>

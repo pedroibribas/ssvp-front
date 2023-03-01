@@ -1,4 +1,4 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { ListApi } from "../../../api/Dashboard/listApi";
 
 interface DeleteFlyerProps {
@@ -6,11 +6,13 @@ interface DeleteFlyerProps {
 }
 
 export function DeleteFlyer({ handleModal }: DeleteFlyerProps) {
-  const path = useLocation().pathname.split("/")[3];
+  const params = useParams();
   const navigate = useNavigate();
   const handleDelete = () => {
-    ListApi.deleteList(path);
-    navigate("/dashboard/flyers");
+    if (params.id) {
+      ListApi.deleteList(params.id);
+      navigate("/dashboard/flyers");
+    }
   }
   return (
     <div className="position-fixed top-0 start-0 vw-100 vh-100 bg-dark bg-opacity-25" style={{ "zIndex": 100 }}>

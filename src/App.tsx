@@ -8,7 +8,7 @@ import { Login } from "./pages/Dashboard/Login";
 import { LandingPage } from "./pages/LandingPage";
 import { EditFlyer } from "./components/Dashboard/EditFlyer";
 import { RequiredAuth } from "./components/Dashboard/RequiredAuth";
-
+import { ErrNetwork } from "./pages/Dashboard/Errors/ErrNetwork";
 import "./styles/global.scss";
 
 const NavigateToLandingPage = () => {
@@ -68,6 +68,10 @@ function App() {
                 <EditFlyer />
               </RequiredAuth>
             }
+          />
+          <Route
+            path="/dashboard/errors/errNetwork"
+            element={<ErrNetwork />}
           />
         </Routes>
       </BrowserRouter>

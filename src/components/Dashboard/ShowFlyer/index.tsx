@@ -5,6 +5,7 @@ import { ListApi } from "../../../api/Dashboard/listApi";
 import { DeleteFlyer } from "../DeleteFlyer";
 import { AddDonation } from "./Donation/AddDonation";
 import { ShowDonation } from "./Donation/ShowDonation";
+import { Loader } from "../../LandingPage/Loader";
 
 interface Donation {
   _id: string
@@ -36,12 +37,7 @@ export function ShowFlyer() {
   const handleOpenDeleteFlyerModal = () => setIsOpenDeleteFlyerModal(!isOpenDeleteFlyerModal);
 
   if (!flyer) {
-    return (
-      <div className="text-center vh-100 mt-5">
-        <div className="spinner-border spinner-border-sm" />
-        <small className="ms-1">Carregando lista...</small>
-      </div>
-    );
+    return <Loader />;
   }
 
   return (

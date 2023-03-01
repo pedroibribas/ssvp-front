@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { BsFillPersonCheckFill as CheckSvg } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ListApi } from "../../../api/Dashboard/listApi";
-import { Loader } from "../Common/Loader";
+import { Loader } from "../Loader";
 
 interface Donation {
   _id: string
@@ -18,14 +18,27 @@ interface List {
 
 export const ShowFlyers = () => {
   const [flyers, setFlyers] = useState<List[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
   const flyersExist = flyers.length > 0;
-  useEffect(() => {
-    ListApi.getLists().then((res) => setFlyers(res.data.data))
-      .catch((err) => console.log(err));
-  }, []);
 
-  if (!flyers || flyers.length === 0) {
-    return <Loader />
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    ListApi.getLists()
+      .then((res) => {
+        setIsLoading(false);
+        setFlyers(res.data.data);
+      })
+      .catch((err) => {
+        if (!err.response && err.code === "ERR_NETWORK") {
+          return navigate("/dashboard/errors/errNetwork");
+        }
+        console.error(`ShowFlyers:30 - ${err.response.data}`);
+      });
+  }, [navigate]);
+
+  if (isLoading && flyers.length === 0) {
+    return <Loader />;
   }
 
   return (
@@ -50,7 +63,7 @@ export const ShowFlyers = () => {
           </div>
         </article>
       )) : (
-        <>Nenhum panfleto encontrado.</>
+        <>Nenhum panfleto encontrado para o usuário.</>
       )}
     </div>
   )
