@@ -128,7 +128,7 @@ export function AddDonator() {
           <label htmlFor="name">Seu nome:</label>
           <input type="text" name="name" id="name" value={donator} onChange={handleChangeDonator} />
         </div>
-        <button type="submit" className="btn btn-primary mt-1">Enviar</button>
+        <button type="submit" className="btn btn-primary mt-1" style={{ fontFamily: "'Montserrat', sans-serif" }}>Enviar</button>
       </form>
     </>
   )
