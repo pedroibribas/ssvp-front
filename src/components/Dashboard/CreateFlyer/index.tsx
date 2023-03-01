@@ -1,14 +1,49 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { MdClose, MdOutlinePlusOne } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
 import { ListApi } from "../../../api/Dashboard/listApi";
+
+interface Donation {
+  _id: string
+  title: string
+  donator?: string
+}
+interface FlyerSample {
+  _id: string
+  manager: string
+  text: string
+  items?: Donation[]
+}
 
 export const CreateFlyer = () => {
   const [manager, setManager] = useState("");
   const [text, setText] = useState("");
   const [donations, setDonations] = useState([""]);
+  const [flyersSamples, setFlyersSamples] = useState<FlyerSample[]>([]);
+
+  useEffect(() => {
+    ListApi.getLists()
+      .then((res) => setFlyersSamples(res.data.data))
+      .catch((err) => console.log(err));
+  }, [])
 
   const navigate = useNavigate();
+
+  const handleCheckSampleFlyer = (sample?: FlyerSample) => {
+    setManager("");
+    setText("");
+    setDonations([""]);
+    if (sample) {
+      setManager(sample.manager);
+      setText(sample.text);
+      sample.items?.forEach((donation) => setDonations((prevState) => {
+        if (prevState[0] === "") {
+          return [donation.title];
+        }
+        return [...prevState, donation.title]
+      }));
+    }
+  }
 
   const handleChangeManager = (event: any) => setManager(event.target.value);
 
@@ -51,6 +86,21 @@ export const CreateFlyer = () => {
     <div className="text-bg-secondary vh-auto">
       <h1 className="py-3 ps-3 text-bg-light">Criar panfleto</h1>
       <form className="p-3" onSubmit={handleSubmit}>
+        <div className="mb-2">
+          <div>Usar dados de panfleto cadastrado:</div>
+          <div className="form-check">
+            <input className="form-check-input" type="radio" name="flyer" id="flyerDefault" onClick={() => handleCheckSampleFlyer()} defaultChecked />
+            <label className="form-check-label" htmlFor="flyerDefault">Nenhum</label>
+          </div>
+          <div className="container row row-cols-2">
+            {flyersSamples.map((sample, index) => (
+              <div key={`flyer-${index}`} className="form-check">
+                <input className="form-check-input" type="radio" name="flyer" id={`flyer-${index}`} onClick={() => handleCheckSampleFlyer(sample)} />
+                <label className="form-check-label" htmlFor={`flyer-${index}`}>Panfleto {index + 1}</label>
+              </div>
+            ))}
+          </div>
+        </div>
         <div className="form-group mb-2">
           <label htmlFor="manager">Nome do responsável:</label>
           <input
@@ -62,7 +112,7 @@ export const CreateFlyer = () => {
             onChange={handleChangeManager}
           />
         </div>
-        <div>
+        <div className="mb-2">
           Lista de doações:
           {donations.map((donation, index) => (
             <div key={index} className="input-group mt-1 align-items-center">
@@ -103,6 +153,6 @@ export const CreateFlyer = () => {
           <Link to="/dashboard/flyers" className="w-100 mt-2 btn btn-danger">Cancelar</Link>
         </div>
       </form >
-    </div>
+    </div >
   )
 };

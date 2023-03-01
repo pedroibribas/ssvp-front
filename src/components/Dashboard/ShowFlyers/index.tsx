@@ -51,7 +51,7 @@ export const ShowFlyers = () => {
           </div>
           <ul className="list-group list-group-flush">
             {flyer?.items?.map(donation => (
-              <li key={donation._id} className="list-group-item">
+              <li key={donation._id} className="d-flex justify-content-between list-group-item">
                 {donation.title}&nbsp;
                 {donation.donator && <span className="badge rounded-pill text-bg-success"><CheckSvg /></span>}
               </li>
