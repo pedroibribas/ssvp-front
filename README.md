@@ -1,5 +1,11 @@
 # SSVP Front-End
 
+## Features
+
+- Landing Page: a landing page é a página que leva doações para o público escolher o que doar.
+
+- Painel: o painel é a plataforma em que os administradores gerenciam o conteúdo da landing page e demais processos.
+
 ## Informações
 
 - Status: Online
@@ -9,8 +15,6 @@
 - Framework: React.js
 - Criado por [Pedro Ribas](https://github.com/pedroibribas)
 - Licensa MIT
-
-<br/>
 
 ## Rodando o projeto
 
